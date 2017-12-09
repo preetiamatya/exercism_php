@@ -7,16 +7,15 @@
 
 function distance($a, $b)
 {
-  $convert_a = str_split($a);
-  $convert_b = str_split($b);
-  $counter = 0;
-  for($i = 0; $i<sizeof($convert_a); $i++) {
-    if (sizeof($convert_a)!=sizeof($convert_b)) {
-       throw new InvalidArgumentException("DNA strands must be of equal length.");
+    $convert_a = str_split($a);
+    $convert_b = str_split($b);
+    $counter   = 0;
+    for ($i = 0; $i < sizeof($convert_a); $i++) {
+        if (sizeof($convert_a) != sizeof($convert_b)) {
+            throw new InvalidArgumentException("DNA strands must be of equal length.");
+        } else if ($convert_a[$i] != $convert_b[$i]) {
+            $counter++;
+        }
     }
-    else if ($convert_a[$i]!=$convert_b[$i]) {
-      $counter++;
-    }
-  }
-  return $counter;
+    return $counter;
 }
